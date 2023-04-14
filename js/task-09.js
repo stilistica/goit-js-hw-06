@@ -12,4 +12,4 @@ btnEl.addEventListener("click", () => {
   const color = getRandomHexColor();
   bodyEl.style.backgroundColor = color;
   spanEl.textContent = color;
-})
+});
