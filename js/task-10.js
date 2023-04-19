@@ -11,7 +11,7 @@ const boxesEl = document.querySelector("#boxes");
 
 const createBoxes = (amount) => {
   const boxSize = 30;
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i += Number(inputEl.step)) {
     const box = document.createElement("div");
 
     let size = boxSize + i * 10;
