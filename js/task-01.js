@@ -4,18 +4,16 @@
 // Для кожного элемента li.item у списку ul#categories, знайде і виведе в консоль текст заголовку елемента (тегу <h2>) і кількість елементів в категорії (усіх <li>, вкладених в нього).
 // Для виконання цього завдання потрібно використати метод forEach() і властивості навігації по DOM.
 
-const categoriesList = document.querySelector("#categories");
 
-const categories = categoriesList.querySelectorAll("li.item");
+const categories = document.querySelectorAll("li.item");
 
 const categoriesCount = categories.length;
-console.log(`Number of categories: ${categoriesCount}`)
+console.log(`Number of categories: ${categories.length}`)
+
 
 categories.forEach(category => {
-  const title = category.querySelector("h2").textContent;
-  console.log(`Category: ${title}`);
+  console.log(`Category: ${category.firstElementChild.textContent}`);
 
-  const categoriesItems = category.querySelectorAll("ul li");
-  const categoriesItemsCount = categoriesItems.length;
-  console.log(`Elements: ${categoriesItemsCount}`)
+  console.log(`Elements: ${category.lastElementChild.children.length}`)
 });
+
