@@ -14,7 +14,7 @@ const createBoxes = (amount) => {
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
 
-    const size = boxSize + i * 10;
+    let size = boxSize + i * 10;
     box.style.width = `${size}px`;
     box.style.height = `${size}px`;
 
@@ -25,12 +25,19 @@ const createBoxes = (amount) => {
 }
 
 const destroyBoxes = () => {
-  boxesEl.innerHTML= "";
+  boxesEl.innerHTML = "";
+  inputEl.value= "";
 }
 
 createBtnEl.addEventListener("click", () => {
-  createBoxes(inputEl.value);
+  const amount = Math.round(inputEl.value);
+  if (amount < inputEl.min || amount > inputEl.max) {
+    alert(`Введіть число від ${inputEl.min} до ${inputEl.max}.`)
+  } else {
+    createBoxes(amount);
+  }
 });
+
 destroyBtnEl.addEventListener("click", () => {
-  destroyBoxes(inputEl.value);
+  destroyBoxes();
 });
